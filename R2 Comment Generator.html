@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Comentarios GitHub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        #comment {
+            width: 80%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        #generateBtn {
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generador de Comentarios GitHub</h1>
+    <textarea id="comment" placeholder="Escribe tu comentario aquí"></textarea><br>
+    <button id="generateBtn">Generar Comentario</button>
+    <p id="result"></p>
+
+    <script>
+        document.getElementById('generateBtn').addEventListener('click', function() {
+            var comment = document.getElementById('comment').value;
+            
+            if (comment.trim() !== '') {
+                var randomComments = [
+                    "🚀 ¡Gran trabajo!",
+                    "👍 Me encanta este código.",
+                    "💡 Buena idea, gracias por compartir.",
+                    "🔧 ¿Has considerado refactorizar esto?",
+                    "👏 Bravo, bien hecho.",
+                    "🤔 ¿Qué opinas de agregar una prueba para esto?",
+                    "📚 La documentación podría mejorarse aquí.",
+                    "⚠️ Ten cuidado con este borde caso.",
+                    "✨ ¡Muy elegante!",
+                    "🙌 Impresionante, gracias por tu contribución."
+                ];
+
+                var randomComment = randomComments[Math.floor(Math.random() * randomComments.length)];
+                var generatedComment = comment + "\n\n" + randomComment;
+                
+                document.getElementById('result').textContent = generatedComment;
+            } else {
+                alert('Por favor, escribe un comentario antes de generar.');
+            }
+        });
+    </script>
+</body>
+</html>
